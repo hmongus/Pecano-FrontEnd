@@ -1,0 +1,29 @@
+<div class="p-4">
+  <h2>Employees List</h2>
+  <table border="1" width="100%" cellpadding="5">
+    <thead>
+    <tr>
+      <th>ID</th>
+      <th>DNI</th>
+      <th>HorasLaboradas</th>
+      <th>DiasLaboradas</th>
+      <th>Faltas</th>
+      <th>TipoTrabajador</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let user of user"
+     [ngClass]="{'highlight-obrero': user.TipoTrabajador === '0',
+     'highlight-supervisor': user.TipoTrabajador=== '1',
+     'highlight-gerente': user.TipoTrabajador === '2'}">
+      <td>{{user.id}}</td>
+      <td>{{user.DNI}}</td>
+      <td>{{user.HorasLaboradas}}</td>
+      <td>{{user.DiasLaboradas}}</td>
+      <td>{{user.Faltas}}</td>
+      <td>{{user.TipoTrabajador}}</td>
+      <td>{{user.calculo}}</td>
+    </tr>
+    </tbody>
+  </table>
+</div>
