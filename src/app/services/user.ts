@@ -5,10 +5,10 @@ import {Observable} from 'rxjs';
 export interface User {
   id: number;
   dni: string;
-  horaslaboradas: number;
-  diaslaborados: number;
+  horasLaboradas: number;
+  diasLaborados: number;
   faltas: number;
-  tipolrabajador: string | number;
+  tipoTrabajador: string | number;
   calcular?: number;
 }
 @Injectable({

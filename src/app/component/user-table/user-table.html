@@ -1,28 +1,33 @@
-<div class="p-4">
-  <h2>Employees List</h2>
-  <table border="1" width="100%" cellpadding="5">
-    <thead>
+<div class="p-6">
+  <h2 class="text-2xl font-semibold mb-4">Employees List</h2>
+
+  <table class="min-w-full border border-gray-300 rounded-lg shadow-md">
+    <thead class="bg-gray-100 text-gray-700">
     <tr>
-      <th>ID</th>
-      <th>DNI</th>
-      <th>HorasLaboradas</th>
-      <th>DiasLaboradas</th>
-      <th>Faltas</th>
-      <th>TipoTrabajador</th>
+      <th class="px-4 py-2 text-left">ID</th>
+      <th class="px-4 py-2 text-left">DNI</th>
+      <th class="px-4 py-2 text-left">Horas Laboradas</th>
+      <th class="px-4 py-2 text-left">Días Laborados</th>
+      <th class="px-4 py-2 text-left">Faltas</th>
+      <th class="px-4 py-2 text-left">Tipo Trabajador</th>
+      <th class="px-4 py-2 text-left">Cálculo</th>
     </tr>
     </thead>
     <tbody>
     <tr *ngFor="let user of user"
-     [ngClass]="{'highlight-obrero': user.TipoTrabajador === '0',
-     'highlight-supervisor': user.TipoTrabajador=== '1',
-     'highlight-gerente': user.TipoTrabajador === '2'}">
-      <td>{{user.id}}</td>
-      <td>{{user.DNI}}</td>
-      <td>{{user.HorasLaboradas}}</td>
-      <td>{{user.DiasLaboradas}}</td>
-      <td>{{user.Faltas}}</td>
-      <td>{{user.TipoTrabajador}}</td>
-      <td>{{user.calculo}}</td>
+        class="hover:bg-gray-50 transition"
+        [ngClass]="{
+            'highlight-obrero': user.tipoTrabajador === '0',
+            'highlight-supervisor': user.tipoTrabajador === '1',
+            'highlight-gerente': user.tipoTrabajador === '2'
+          }">
+      <td class="px-4 py-2">{{ user.id }}</td>
+      <td class="px-4 py-2 font-mono">{{ user.dni }}</td>
+      <td class="px-4 py-2">{{ user.horasLaboradas }}</td>
+      <td class="px-4 py-2">{{ user.diasLaborados }}</td>
+      <td class="px-4 py-2 text-red-600 font-semibold">{{ user.faltas }}</td>
+      <td class="px-4 py-2">{{ user.tipoTrabajador }}</td>
+      <td class="px-4 py-2">{{ user.calcular }}</td>
     </tr>
     </tbody>
   </table>
